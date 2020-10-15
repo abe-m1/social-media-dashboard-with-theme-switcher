@@ -35,6 +35,30 @@ $lightGrayishBlue: hsl(227, 47%, 96%);
 $darkGrayishBlue: hsl(228, 12%, 44%);
 $veryDarkBlue: hsl(230, 17%, 14%);
 
+//mixins
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
+
 body {
   font-family: 'Inter', sans-serif;
 }
