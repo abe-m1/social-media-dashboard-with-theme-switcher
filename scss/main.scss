@@ -35,6 +35,13 @@ $lightGrayishBlue: hsl(227, 47%, 96%);
 $darkGrayishBlue: hsl(228, 12%, 44%);
 $veryDarkBlue: hsl(230, 17%, 14%);
 
+:root {
+  --primary-color: hsl(0, 0%, 100%);
+}
+[data-theme='dark'] {
+  --primary-color: hsl(230, 17%, 14%);
+}
+
 //mixins
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
@@ -78,6 +85,7 @@ html {
 body {
   font-size: 1.4qrem;
   font-family: 'Inter', sans-serif;
+  background-color: var(--primary-color);
 }
 
 .container {
@@ -85,8 +93,96 @@ body {
   margin: auto;
 }
 
+.header {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 .icon {
   width: 3rem;
+}
+
+//slider
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background-image: linear-gradient(
+  //   to right bottom,
+  //   hsl(236, 72%, 79%),
+  //   hsl(237, 63%, 64%)
+  // );
+  background-color: $lightGrayishBlue;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  &:hover {
+    background-image: linear-gradient(
+      to right bottom,
+      hsl(236, 72%, 79%),
+      hsl(237, 63%, 64%)
+    );
+  }
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+
+  height: 26px;
+  width: 26px;
+  left: 30px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-image: linear-gradient(
+    to right bottom,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-26px);
+  -ms-transform: translateX(-26px);
+  transform: translateX(-26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .large-row {
@@ -108,6 +204,19 @@ body {
   &--facebook {
     border-top: 4px solid $facebook;
   }
+
+  &--twitter {
+    border-top: 4px solid $twitter;
+  }
+
+  &--instagram {
+    // border-top: 4px solid;
+    // border-image-source: $instagram;
+    // border-image-slice: 2;
+  }
+  &--youtube {
+    border-top: 4px solid $youTube;
+  }
 }
 
 .box-large-top {
@@ -123,6 +232,7 @@ body {
   margin-left: 2rem;
   font-size: 1.7rem;
   font-weight: 700;
+  color: $darkGrayishBlue;
 }
 
 .followers {
@@ -161,7 +271,10 @@ body {
 .top {
   display: flex;
   margin-bottom: 3rem;
+  justify-content: space-between;
+  width: 100%;
 }
+
 .bottom {
   display: flex;
   justify-content: space-between;
@@ -171,6 +284,10 @@ body {
   margin-right: 2rem;
   font-size: 1.7rem;
   font-weight: 700;
+}
+
+.small-number {
+  font-size: 4rem;
 }
 
 .attribution {
