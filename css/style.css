@@ -11,10 +11,18 @@ img {
   width: 100%; }
 
 :root {
-  --primary-color: hsl(0, 0%, 100%); }
+  --background-color: hsl(0, 0%, 100%);
+  --topBackgroundPattern: hsl(225, 100%, 98%);
+  --cardBackground: hsl(227, 47%, 96%);
+  --cardText: hsl(228, 12%, 44%);
+  --cardNumber: hsl(230, 17%, 14%); }
 
 [data-theme='dark'] {
-  --primary-color: hsl(230, 17%, 14%); }
+  --background-color: hsl(230, 17%, 14%);
+  --topBackgroundPattern: hsl(232, 19%, 15%);
+  --cardBackground: hsl(228, 28%, 20%);
+  --cardText: hsl(228, 12%, 44%);
+  --cardNumber: hsl(0, 0%, 100%); }
 
 html {
   font-size: 62.5%; }
@@ -34,7 +42,7 @@ html {
 body {
   font-size: 1.4qrem;
   font-family: 'Inter', sans-serif;
-  background-color: var(--primary-color); }
+  background-color: var(--background-color); }
 
 .container {
   width: 80%;
@@ -110,7 +118,7 @@ input:checked + .slider:before {
   margin-bottom: 3rem; }
 
 .box-large {
-  background-color: #f0f2fa;
+  background-color: var(--cardBackground);
   padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
@@ -131,7 +139,8 @@ input:checked + .slider:before {
   align-items: flex-end; }
 
 .metric-total {
-  font-size: 5rem; }
+  font-size: 5rem;
+  color: var(--cardNumber); }
 
 .handle {
   margin-left: 2rem;
@@ -156,7 +165,7 @@ input:checked + .slider:before {
   flex-wrap: wrap; }
 
 .box-small {
-  background-color: #f0f2fa;
+  background-color: var(--cardBackground);
   padding: 3rem 3rem;
   width: 22%;
   display: flex;
@@ -181,7 +190,8 @@ input:checked + .slider:before {
 .metric-type {
   margin-right: 2rem;
   font-size: 1.7rem;
-  font-weight: 700; }
+  font-weight: 700;
+  color: var(--cardText); }
 
 .small-number {
   font-size: 4rem; }
