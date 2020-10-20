@@ -20,12 +20,12 @@
   <body>
     <div class="container">
       <div class="header">
-        <div>
+        <div class="headline-container">
           <h1 class="main-headline">Social Media Dashboard</h1>
           <p class="sub-headline">Total Followers: 23,004</p>
         </div>
-        <div>
-          <span>Dark Mode</span>
+        <div class="toggle-container">
+          <span class="mode">Dark Mode</span>
           <label class="switch">
             <input id="toggle-switch" type="checkbox" />
             <span class="slider round"></span>
@@ -41,9 +41,9 @@
 
           <h2 class="metric-total">1987</h2>
           <p class="followers">Followers</p>
-          <div>
-            <img class="up" src="/images/icon-up.svg" alt="" />
-            <span class="today">12 Today</span>
+          <div class="percent-container">
+            <img class="up-icon" src="/images/icon-up.svg" alt="" />
+            <span class="today up">12 Today</span>
           </div>
         </div>
 
@@ -55,8 +55,8 @@
 
           <h2 class="metric-total">1044</h2>
           <p class="followers">Followers</p>
-          <div>
-            <img class="up" src="/images/icon-up.svg" alt="" />
+          <div class="percent-container">
+            <img class="up-icon" src="/images/icon-up.svg" alt="" />
             <span class="today">99 Today</span>
           </div>
         </div>
@@ -68,8 +68,8 @@
           </div>
           <h2 class="metric-total">11k</h2>
           <p class="followers">Followers</p>
-          <div>
-            <img class="up" src="/images/icon-up.svg" alt="" />
+          <div class="percent-container">
+            <img class="up-icon" src="/images/icon-up.svg" alt="" />
             <span class="today">1099 Today</span>
           </div>
         </div>
@@ -82,9 +82,9 @@
 
           <h2 class="metric-total">8239</h2>
           <p class="followers">Subscribers</p>
-          <div>
-            <img class="up" src="/images/icon-down.svg" alt="" />
-            <span class="today">144 Today</span>
+          <div class="percent-container">
+            <img class="up-icon" src="/images/icon-down.svg" alt="" />
+            <span class="today down">144 Today</span>
           </div>
         </div>
       </div>
@@ -97,84 +97,114 @@
           </div>
           <div class="bottom">
             <p class="small-number">87</p>
-            <p class="small-percent">3%</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <span class="small-percent up">3%</ansp>
+            </div>
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Likes</p>
+            <p class="metric-type">Likes</p>
             <img class="icon" src="/images/icon-facebook.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>52</p>
-            <p>2%</p>
+            <p class="small-number">52</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">2%</p>
+            </div>
+           
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Likes</p>
+            <p class="metric-type">Likes</p>
             <img class="icon" src="/images/icon-instagram.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>5462</p>
-            <p>2257%</p>
+            <p class="small-number">5462</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">2257%</p>
           </div>
+        </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Profile Views</p>
+            <p class="metric-type">Profile Views</p>
             <img class="icon" src="/images/icon-instagram.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>52k</p>
-            <p>1375%</p>
+            <p class="small-number">52k</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">1375%</p>
+            </div>
+           
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Retweets</p>
+            <p class="metric-type">Retweets</p>
             <img class="icon" src="/images/icon-twitter.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>117</p>
-            <p>303%</p>
+            <p class="small-number">117</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">303%</p>
+            </div>
+            
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Likes</p>
+            <p class="metric-type">Likes</p>
             <img class="icon" src="/images/icon-twitter.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>507</p>
-            <p>553%</p>
+            <p class="small-number">507</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">553%</p>
+            </div>
+           
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Likes</p>
+            <p class="metric-type">Likes</p>
             <img class="icon" src="/images/icon-youtube.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>107</p>
-            <p>19%</p>
+            <p class="small-number">107</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">19%</p>
+            </div>
+           
           </div>
         </div>
 
         <div class="box-small">
           <div class="top">
-            <p>Total Views</p>
+            <p class="metric-type">Total Views</p>
             <img class="icon" src="/images/icon-youtube.svg" alt="" />
           </div>
           <div class="bottom">
-            <p>1407</p>
-            <p>12%</p>
+            <p class="small-number">1407</p>
+            <div class="percent-container">
+              <img class="up-icon" src="/images/icon-up.svg" alt="" />
+              <p class="small-percent up">12%</p>
+            </div>
+           
           </div>
         </div>
       </div>

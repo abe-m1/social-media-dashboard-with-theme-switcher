@@ -41,6 +41,8 @@ $veryDarkBlue: hsl(230, 17%, 14%);
   --cardBackground: hsl(227, 47%, 96%);
   --cardText: hsl(228, 12%, 44%);
   --cardNumber: hsl(230, 17%, 14%);
+  --cardHover: hsl(228, 16%, 87%);
+  --subHeadline: hsl(228, 12%, 44%);
 }
 
 [data-theme='dark'] {
@@ -49,6 +51,8 @@ $veryDarkBlue: hsl(230, 17%, 14%);
   --cardBackground: hsl(228, 28%, 20%);
   --cardText: hsl(228, 12%, 44%);
   --cardNumber: hsl(0, 0%, 100%);
+  --cardHover: hsl(229, 27%, 28%);
+  --subHeadline: hsl(0, 0%, 100%);
 }
 
 //mixins
@@ -95,21 +99,72 @@ body {
   font-size: 1.4qrem;
   font-family: 'Inter', sans-serif;
   background-color: var(--background-color);
+  transition: 0.5s;
 }
 
 .container {
-  width: 80%;
+  width: 77%;
   margin: auto;
+
+  @include respond(phone) {
+    width: 86%;
+  }
 }
 
 .header {
-  padding: 3rem 0;
+  padding: 4rem 0;
   display: flex;
   justify-content: space-between;
+
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+.headline-container {
+  @include respond(phone) {
+    margin-bottom: 2.3rem;
+  }
 }
 
 .icon {
-  width: 3rem;
+  width: 2rem;
+}
+
+.main-headline {
+  font-size: 2.7rem;
+  color: var(--cardNumber);
+
+  @include respond(phone) {
+    margin-bottom: 0.6rem;
+  }
+}
+
+.sub-headline {
+  font-size: 1.5rem;
+  color: $darkGrayishBlue;
+
+  @include respond(phone) {
+    font-weight: 700;
+  }
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+
+  @include respond(phone) {
+    justify-content: space-between;
+    border-top: 1px solid $darkDesaturatedBlue;
+    padding-top: 2rem;
+  }
+}
+
+.mode {
+  margin-right: 2rem;
+  font-size: 1.8rem;
+  color: $darkGrayishBlue;
+  font-weight: 700;
 }
 
 //slider
@@ -118,7 +173,7 @@ body {
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 32px;
+  height: 28px;
 }
 
 /* Hide default HTML checkbox */
@@ -141,7 +196,14 @@ body {
   //   hsl(236, 72%, 79%),
   //   hsl(237, 63%, 64%)
   // );
+  @include respond(phone) {
+    font-weight: 700;
+  }
+
   background-color: $lightGrayishBlue;
+  @include respond(phone) {
+    background-color: hsl(228, 16%, 87%);
+  }
   -webkit-transition: 0.4s;
   transition: 0.4s;
 
@@ -158,10 +220,10 @@ body {
   position: absolute;
   content: '';
 
-  height: 26px;
-  width: 26px;
-  left: 30px;
-  bottom: 3px;
+  height: 24px;
+  width: 24px;
+  left: 31px;
+  bottom: 2px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -197,18 +259,36 @@ input:checked + .slider:before {
 .large-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 4.3rem;
+
+  @include respond(phone) {
+    display: block;
+  }
 }
 
 .box-large {
   background-color: var(--cardBackground);
-  padding: 3rem 6rem;
+  padding: 3rem 6rem 2.4rem 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  width: 22%;
+  width: 23%;
+  position: relative;
+  // transition: 0.5s;
+
+  &:hover {
+    &:not(:nth-child(3)) {
+      background-color: var(--cardHover);
+    }
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 3.2rem;
+  }
 
   &--facebook {
     border-top: 4px solid $facebook;
@@ -222,6 +302,33 @@ input:checked + .slider:before {
     // border-top: 4px solid;
     // border-image-source: $instagram;
     // border-image-slice: 2;
+    // color: #fff;
+    // background: #000;
+    background-clip: padding-box; /* !importanté */
+    border-top: solid 1px transparent; /* !importanté */
+    // border-radius: 1rem;
+
+    &:hover {
+      background: linear-gradient(to right, var(--cardHover), var(--cardHover));
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 1px;
+      left: 1px;
+      z-index: -1;
+      margin-top: -4px;
+
+      border-radius: inherit; /* !importanté */
+      background: linear-gradient(
+        to right,
+        hsl(37, 97%, 70%),
+        hsl(329, 70%, 58%)
+      );
+    }
   }
   &--youtube {
     border-top: 4px solid $youTube;
@@ -230,75 +337,137 @@ input:checked + .slider:before {
 
 .box-large-top {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
   align-items: flex-end;
 }
 .metric-total {
-  font-size: 5rem;
+  font-size: 5.2rem;
   color: var(--cardNumber);
+
+  @include respond(phone) {
+    font-size: 6.4rem;
+  }
 }
 
 .handle {
-  margin-left: 2rem;
-  font-size: 1.7rem;
+  margin-left: 1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: $darkGrayishBlue;
 }
 
 .followers {
   text-transform: uppercase;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   color: $darkGrayishBlue;
-  margin-bottom: 2rem;
+  margin-bottom: 2.3rem;
+  letter-spacing: 0.3rem;
+
+  @include respond(phone) {
+    margin-bottom: 2.9rem;
+  }
 }
 
 .today {
   color: $limeGreen;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.up-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .up {
-  width: 1rem;
+  color: $limeGreen;
+}
+
+.down {
+  color: $youTube;
+}
+
+.overview {
+  font-size: 2.5rem;
+  color: var(--subHeadline);
+  margin-bottom: 2.4rem;
+
+  @include respond(phone) {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .small-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-bottom: 2rem;
+  column-gap: 3rem;
+
+  @include respond(phone) {
+    display: block;
+  }
 }
 
 .box-small {
   background-color: var(--cardBackground);
-  padding: 3rem 3rem;
-  width: 22%;
+  padding: 3rem 3rem 1.8rem 3rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  margin-bottom: 2.3rem;
   margin-right: 3rem;
-  margin-bottom: 3rem;
+
+  &:hover {
+    background-color: var(--cardHover);
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    padding: 3.2rem 3rem 2.4rem 3rem;
+    margin-bottom: 1.9rem;
+  }
 }
 
 .top {
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 1.8rem;
   justify-content: space-between;
   width: 100%;
+}
+
+.percent-container {
+  display: flex;
+  align-items: center;
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   width: 100%;
 }
 .metric-type {
-  margin-right: 2rem;
-  font-size: 1.7rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--cardText);
 }
 
 .small-number {
-  font-size: 4rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cardNumber);
+}
+
+.small-percent {
+  font-weight: 700;
+  font-size: 1.6rem;
 }
 
 .attribution {
